@@ -3567,7 +3567,7 @@ class core_course_external extends external_api {
             case 'moveright':
                 require_capability('moodle/course:manageactivities', $modcontext);
                 $indent = $cm->indent + (($action === 'moveright') ? 1 : -1);
-                if ($cm->indent >= 0) {
+                if ($indent >= 0) {
                     $DB->update_record('course_modules', array('id' => $cm->id, 'indent' => $indent));
                     rebuild_course_cache($cm->course);
                 }
